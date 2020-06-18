@@ -1,69 +1,68 @@
-class MealController < ApplicationController
+class MealsController < ApplicationController
 
-    before_action :set_meal, only: [:show, :update, :destroy]
+  before_action :set_meal, only: [:show, :update, :destroy]
 
     def index
 
-        @meals = Meal.all
+      @meals = Meal.all
 
-        render json: @meals
-
-    end
-
-    def show
-
-        @meal = Meal.find(params[:id])
-
-        render json: @meal
+      render json:@meals, status:200
 
     end
 
-    def create
+   def show
 
-        @meal = Meal.new(meal_params)
+     render json: @meal
+
+   end
+
+   def create
+
+       @meal = Meal.new(meal_params)
     
-        if @meal.save
+       if @meal.save
     
-          render json:@meal, status: 201
+         render json:@meal, status: 201
     
-        else
+       else
     
-          render json:@meal.errors, status: :unprocessable_entity
+         render json:@meal.errors, status: :unprocessable_entity
     
-        end   
+       end   
     
-    end
+   end
 
     def update
 
-        if @meal.update(anime_params)
+    if @meal.update(meal_params)
     
-          render json: @meal, status: 200
+     render json: @meal, status: 200
     
-        else
+    else
     
-          render json: @meal.errors, status: :unprocessable_entity
+     render json: @meal.errors, status: :unprocessable_entity
     
-        end
+     end
     
     end
 
     def destroy
 
-        @meal.destroy
+      @meal.destroy
     
     end
 
-    def set_meal
 
-        @meal = Meal.find(params[:id])
+  def set_meal
+
+       @meal = Meal.find(params[:id])
     
     end
 
-    def meal_params
+  def meal_params
 
-        params.require(:meal).permit(:name, :description)
+  params.permit(:name, :description, :price, :available, :meals_categories_id)
     
-    end
+  end 
 
 end

@@ -5,20 +5,11 @@ Rails.application.routes.draw do
 
     get "/meals/:id", to: "meals#show"
 
-    get "/meals", to: "meals#index"
-
-    get "/meals/:id", to: "meals#show"
-
     post "/meals", to: "meals#create"
 
     put "/meals/:id", to: "meals#update"
 
     delete "meals/:id", to: "meals#destroy"
-
-
-    get "/meal_categories", to: "meal_categories#index"
-
-    get "/meal_categories/:id", to: "meal_categories#show" 
     
     get "/meal_categories", to: "meal_categories#index"
 
