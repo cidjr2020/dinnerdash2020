@@ -50,7 +50,7 @@ def order_params
   params.permit(:price)
 
 end
-
+end
 end
 
 
