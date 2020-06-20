@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+    get "/situations", to: "situations#index"
+
+    get "/situations/:id", to: "situations#show"
+
+    post "/situations", to: "situations#create"
+
+    put "/situations/:id", to: "situations#update"
+
+    delete "/situations/:id", to: "situations#destroy"
+
+
     get "/meals", to: "meals#index"
 
     get "/meals/:id", to: "meals#show"
@@ -8,7 +19,8 @@ Rails.application.routes.draw do
 
     put "/meals/:id", to: "meals#update"
 
-    delete "meals/:id", to: "meals#destroy"
+    delete "/meals/:id", to: "meals#destroy"
+
     
     get "/meal_categories", to: "meal_categories#index"
 
@@ -18,7 +30,7 @@ Rails.application.routes.draw do
 
     put "/meal_categories/:id", to: "meal_categories#update"
 
-    delete "meal_categories/:id", to: "meal_categories#destroy"
+    delete "/meal_categories/:id", to: "meal_categories#destroy"
 
 
     get "/orders", to:"orders#index"
