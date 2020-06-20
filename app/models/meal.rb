@@ -1,5 +1,5 @@
 class Meal < ApplicationRecord
-    belongs_to :meal_categories
+    belongs_to :meal_category
 
     after_create :add_price
     has_one_attached :image

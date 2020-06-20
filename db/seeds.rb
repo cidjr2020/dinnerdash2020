@@ -3,5 +3,7 @@
 #
 # Examples:
 #
-  meals = Meal.create([{ name: 'Farofa' }, { name: 'Ovo' }])
+  MealCategory.create(name:"gostoso")
+  meals = Meal.create([{ name: 'Farofa', description:"Gostoso", available: true, price: 10, meal_category_id: 1  }, 
+  {name: 'Farofa com ovo', description:"Mais gostoso que a farofa normal", available: true, price: 15, meal_category_id: 1 }  ]) 
 

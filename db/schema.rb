@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_06_16_204805) do
     t.boolean "available"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "meal_categories_id", null: false
-    t.index ["meal_categories_id"], name: "index_meals_on_meal_categories_id"
+    t.bigint "meal_category_id", null: false
+    t.index ["meal_category_id"], name: "index_meals_on_meal_category_id"
   end
 
   create_table "order_meals", force: :cascade do |t|
@@ -81,5 +81,5 @@ ActiveRecord::Schema.define(version: 2020_06_16_204805) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "meals", "meal_categories", column: "meal_categories_id"
+  add_foreign_key "meals", "meal_categories"
 end
