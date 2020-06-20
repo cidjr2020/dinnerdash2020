@@ -1,53 +1,50 @@
 class OrdersMealsController < ApplicationController
+    before_action :set_orders_meals, only: [:show, :update, :destroy]
+
     def index 
         @orders_meals= OrderMeal.all
         render json: @orders_meals, status: 200
-      
-        
-  
-     end
-  
-    
-   def show 
-  @orders_meals = OrderMeal.find(params[:id])
-     render json: @orders_meals, status: 200
     end
   
-  
     
+    def show 
+        render json: @orders_meal, status: 200
+    end
   
+    def create 
+        @order_meal = OrderMeal.new(order_meals_params)
+        if @order_meal.save
+            render json:@order_meal, status: 201
   
-  
-  
-     def create 
-     @order_meal = OrderMeal.new(order_params)
-     if @order_meal.save
-         render json:@order_meal, status: 201
-  
-    else
-         render json:@order_meal.errors, status: :unprocessable_entity
-  
+        else
+            render json:@order_meal.errors, status: :unprocessable_entity
+        end    
     end   
   
-    end
   
    def update
-       if @order.update(order_meals_params)
+        if @order.update(order_meals_params)
            render json:@order_meal, status:200
-       else 
+        else 
            render json:@order_meal.errors, status: :unprocessssable_entity
   
-       end
+        end
+    end    
   
-   end    
-   def destroy
+    def destroy
       @ordermeal.destroy
+    end
+
+    def set_order_meals
   
+        @order_meal = Order_meal.find(params[:id])
+     
+    end
   
-  def  order_meals_params
+    def  order_meals_params
   
-    params.permit(:quantity)
+        params.permit(:quantity)
   
-  end
+    end
 
 end

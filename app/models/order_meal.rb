@@ -1,3 +1,3 @@
 class OrderMeal < ApplicationRecord
-    belong_to :order
+    belongs_to :orders
 end
