@@ -4,14 +4,16 @@ class MealsController < ApplicationController
   
       def index
 
-          
-       @q = Post.ransack(params[:q])
-    
-       render json: @q.result(distinct: true)
+        @q = Meal.ransack(params[:q])
+
+         render json: @q.result(distinct: true)
+
+
+        
   
-        @meals = Meal.all
+        
   
-        render json:@meals, status:200
+        
   
       end
   
@@ -68,12 +70,7 @@ class MealsController < ApplicationController
   
     params.permit(:name, :description, :price, :available, :meal_category_id)
 
-
     
-
-    
-   
-  end
       
     end 
   

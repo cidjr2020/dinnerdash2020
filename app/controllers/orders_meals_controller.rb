@@ -2,8 +2,11 @@ class OrdersMealsController < ApplicationController
     before_action :set_orders_meals, only: [:show, :update, :destroy]
 
     def index 
-        @orders_meals= OrderMeal.all
-        render json: @orders_meals, status: 200
+        @q = OrderMeal.ransack(params[:q])
+
+         render json: @q.result(distinct: true)
+
+        
     end
   
     

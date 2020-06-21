@@ -3,9 +3,9 @@ class MealCategoriesController < ApplicationController
 
   def index
 
-    @meal_categories = MealCategory.all
+    @q = MealCategory.ransack(params[:q])
 
-    render json:@meal_categories, status:200
+    render json: @q.result(distinct: true)
 
   end
 

@@ -3,10 +3,9 @@ class SituationsController < ApplicationController
   
     def index
 
-      @situations = Situation.all
+      @q = Situation.ransack(params[:q])
 
-      render json:@situations, status:200
-
+         render json: @q.result(distinct: true)
     end
 
    def show
