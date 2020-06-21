@@ -3,6 +3,11 @@ class MealsController < ApplicationController
     before_action :set_meal, only: [:show, :update, :destroy]
   
       def index
+
+          
+       @q = Post.ransack(params[:q])
+    
+       render json: @q.result(distinct: true)
   
         @meals = Meal.all
   
@@ -64,11 +69,8 @@ class MealsController < ApplicationController
     params.permit(:name, :description, :price, :available, :meal_category_id)
 
 
-    def index
-
-      @q = Post.ransack(params[:q])
     
-      render json: @q.result(distinct: true)
+
     
    
   end
