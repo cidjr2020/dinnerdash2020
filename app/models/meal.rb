@@ -9,4 +9,13 @@ class Meal < ApplicationRecord
         meal.price = 20.0
         meal.save
     end  
+
+    def index
+
+        @q = Post.ransack(params[:q])
+      
+        render json: @q.result(distinct: true)
+      
+     
+    end
 end
