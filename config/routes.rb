@@ -46,4 +46,7 @@ Rails.application.routes.draw do
     put "/orders_meals/:id", to: "orders_meals#update"
     delete "/orders_meals/:id", to:"orders_meals#destroy"
 
+    post "/auth/login", to: "authentication#login"
+    get "/*a", to: "application#not_found"
+
 end
