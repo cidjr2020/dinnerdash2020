@@ -2,6 +2,9 @@ class Meal < ApplicationRecord
     include Rails.application.routes.url_helpers
     belongs_to :meal_category
 
+    validates :name, presence: true
+    validates :price, numericality: true
+    
 
     has_one :order, through: :order_meal
 

@@ -3,4 +3,6 @@ class Order < ApplicationRecord
     belongs_to :user
     belongs_to :situation
 
+    validates :price, numericality: true
+
 end
