@@ -49,4 +49,10 @@ Rails.application.routes.draw do
     post "/auth/login", to: "authentication#login"
     get "/*a", to: "application#not_found"
 
+    get "/users", to: "users#index"
+    get "/users/{username}", to: "users#show"
+    post "/users", to: "users#create"
+    put "/users/{username}", to: "users#update"
+    delete "/users/{username}", to: "users#destroy"
+
 end
