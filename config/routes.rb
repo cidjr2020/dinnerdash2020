@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
     put "/meals/:id", to: "meals#update"
 
+    patch "/meals/:id", to: "meals#update"
+
     delete "/meals/:id", to: "meals#destroy"
 
     
@@ -47,7 +49,7 @@ Rails.application.routes.draw do
     delete "/orders_meals/:id", to:"orders_meals#destroy"
 
     post "/auth/login", to: "authentication#login"
-    get "/*a", to: "application#not_found"
+    
 
     get "/users", to: "users#index"
     get "/users/{username}", to: "users#show"

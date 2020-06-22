@@ -1,5 +1,7 @@
 class Meal < ApplicationRecord
+    include Rails.application.routes.url_helpers
     belongs_to :meal_category
+
 
     has_one :order, through: :order_meal
 
@@ -12,5 +14,11 @@ class Meal < ApplicationRecord
         meal.save
     end  
 
-    
+
+    def attachment_url
+       
+        rails_blob_url(self.image, only_path: true) if self.image.attached?
+            
+      end
+
 end

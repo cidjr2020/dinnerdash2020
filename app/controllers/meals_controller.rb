@@ -65,11 +65,13 @@ class MealsController < ApplicationController
          @meal = Meal.find(params[:id])
       
     end
+
   
     def meal_params
   
-    params.permit(:name, :description, :price, :available, :meal_category_id)
-
+    params.permit( :image, :name, :description, :price, :available, :meal_category_id)
+    
+   
     
       
     end 
